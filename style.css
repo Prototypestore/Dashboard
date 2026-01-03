@@ -128,6 +128,15 @@ svg line {
   fill: #f049ff !important;
 }
 
+/* =========================
+DO NOT FILL CENTER DONUT (FIX)
+========================= */
+.circle-container svg,
+.circle-container svg * {
+  fill: none !important;
+  stroke: #000000 !important;
+}
+
 .icon,
 .icon::before {
   color: #000000;
