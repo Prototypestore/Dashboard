@@ -1,144 +1,139 @@
-/* =====================
-   CSS VARIABLES
-===================== */
 :root {
-  --bg-color: #f0f4f8;
-  --surface-color: #ffffff;
-  --text-color: #1a202c;
-  --primary-color: #3b82f6;
-  --secondary-color: #64748b;
+  --bg: #ffffff;
+  --text: #000000;
+  --accent: #f049ff;
+  --muted: #777;
 }
 
-/* =====================
-   RESET
-===================== */
 * {
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
+body {
   margin: 0;
+  background: var(--bg);
   font-family: system-ui, -apple-system, sans-serif;
-  background: var(--bg-color);
-  color: var(--text-color);
+  color: var(--text);
 }
 
-/* =====================
-   LAYOUT
-===================== */
-.dashboard-root {
-  min-height: 100%;
-  padding: 24px;
-}
-
-.dashboard-wrapper {
+.dashboard {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 32px;
 }
 
-header {
+.title {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 2px;
   margin-bottom: 32px;
 }
 
-header h1 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
+/* ---------- GRID ---------- */
 
-header p {
-  color: var(--secondary-color);
-  font-size: 14px;
-}
-
-/* =====================
-   METRICS GRID
-===================== */
-.metrics {
+.top-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
-.metric-card {
-  background: var(--surface-color);
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 20px;
+}
+
+/* ---------- CARDS ---------- */
+
+.card {
+  background: white;
+  border-radius: 20px;
   padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.metric-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-}
+/* ---------- METRICS ---------- */
 
-.metric-card .label {
+.metric h3 {
   font-size: 14px;
-  color: var(--secondary-color);
-  margin-bottom: 8px;
-}
-
-.metric-card .value {
-  font-size: 32px;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
-.metric-card .change {
+.metric .value {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.metric .change {
+  margin-top: 6px;
   font-size: 14px;
+  color: var(--accent);
 }
 
-.metric-card .change.up {
-  color: #10b981;
+.metric .sub {
+  font-size: 12px;
+  color: var(--muted);
 }
 
-.metric-card .change.down {
-  color: #ef4444;
-}
+/* ---------- DONUT ---------- */
 
-.metric-card .change span {
-  color: var(--secondary-color);
-}
-
-/* =====================
-   BUTTONS
-===================== */
-.actions {
+.donut {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 32px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.dashboard-btn {
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: opacity 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+.donut-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      var(--accent) var(--percent),
+      #eee 0
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.dashboard-btn.primary {
-  background: var(--primary-color);
-  color: #fff;
-  border: none;
+.donut-inner {
+  width: 120px;
+  height: 120px;
+  background: white;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 28px;
 }
 
-.dashboard-btn.primary:hover {
-  opacity: 0.9;
+.donut-inner strong {
+  font-size: 28px;
 }
 
-.dashboard-btn.outline {
-  background: var(--surface-color);
-  color: var(--text-color);
-  border: 2px solid var(--secondary-color);
+.donut-inner span {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
 }
 
-.dashboard-btn.outline:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+/* ---------- CHART ---------- */
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  height: 240px;
+  gap: 10px;
+}
+
+.bar {
+  width: 20px;
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+.bar.light {
+  background: #ffd3fa;
 }
