@@ -63,11 +63,11 @@ GRID LAYOUT
 }
 
 .budget-donuts {
-  grid-column: 5 / 7; /* same columns as chart */
-  grid-row: 4;        /* below the chart */
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
+  grid-column: 5 / 8; 
+  grid-row: 3; 
+  display: flex; 
+  gap: 20px; 
+  justify-content: space-between; 
 }
 
 /* -------------------------
