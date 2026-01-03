@@ -130,10 +130,11 @@ CARD STYLES (EQUAL HEIGHT)
 /* -------------------------
 FORCE SVG / ICON COLORS
 --------------------------*/
-svg *,
-svg circle,
-svg rect,
-svg line {
+/* FORCE SVG COLORS (EXCEPT CENTER DONUT) */
+svg:not(.center-donut) *,
+svg:not(.center-donut) circle,
+svg:not(.center-donut) rect,
+svg:not(.center-donut) line {
   stroke: #000000 !important;
   fill: #f049ff !important;
 }
@@ -141,10 +142,17 @@ svg line {
 /* =========================
 DO NOT FILL CENTER DONUT (FIX)
 ========================= */
-.circle-container svg,
-.circle-container svg * {
+/* CENTER DONUT — STROKE ONLY */
+.circle-container svg circle {
   fill: none !important;
+}
+
+.circle-bg {
   stroke: #000000 !important;
+}
+
+.circle-fg {
+  stroke: #f049ff !important;
 }
 
 .icon,
