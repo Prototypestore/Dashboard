@@ -1,18 +1,31 @@
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Financial Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Business Dashboard</title>
-  <!-- Element SDK -->
-  <script src="./_sdk/element_sdk.js"></script>
-  <script src="./_sdk/data_sdk.js"></script>
-  <!-- Pure CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="h-full">
-  <div id="dashboard-container" class="dashboard-root"></div>
-  <!-- JS -->
-  <script type="module" src="./js/dashboard.js"></script>
+<body>
+  <main class="dashboard">
+    <h1 class="title">FINANCIAL DASHBOARD</h1>
+    <section class="top-grid">
+      <div class="card metric" id="income"></div>
+      <div class="card metric" id="expenses"></div>
+      <div class="card donut large" id="profit-margin"></div>
+      <div class="card metric" id="receivable"></div>
+      <div class="card metric" id="payable"></div>
+      <div class="card metric" id="net-profit"></div>
+      <div class="card metric" id="cash"></div>
+      <div class="card metric" id="quick-ratio"></div>
+      <div class="card metric" id="current-ratio"></div>
+    </section>
+    <section class="bottom-grid">
+      <div class="card chart" id="income-expenses"></div>
+      <div class="card donut" id="income-budget"></div>
+      <div class="card donut" id="expense-budget"></div>
+    </section>
+  </main>
+  <script src="dashboard.js"></script>
 </body>
 </html>
