@@ -71,7 +71,6 @@ GRID LAYOUT
   justify-content: space-between;
 }
 
-
 /* -------------------------
 CARD STYLES (EQUAL HEIGHT)
 --------------------------*/
@@ -116,34 +115,6 @@ CARD STYLES (EQUAL HEIGHT)
   opacity: 0.7;
 }
 
-/* -------------------------
-FORCE SVG / ICON COLORS
---------------------------*/
-/* FORCE SVG COLORS (EXCEPT CENTER DONUT) */
-svg:not(.center-donut) *,
-svg:not(.center-donut) circle,
-svg:not(.center-donut) rect,
-svg:not(.center-donut) line {
-  stroke: #000000 !important;
-  fill: #f049ff !important;
-}
-
-/* =========================
-DO NOT FILL CENTER DONUT (FIX)
-========================= */
-/* CENTER DONUT — STROKE ONLY */
-.circle-container svg circle {
-  fill: none !important;
-}
-
-.circle-bg {
-  stroke: #000000 !important;
-}
-
-.circle-fg {
-  stroke: #f049ff !important;
-}
-
 .icon,
 .icon::before {
   color: #000000;
@@ -186,14 +157,6 @@ DONUTS
   width: 130px;
   height: 130px;
   position: relative;
-}
-
-.circle-bg {
-  stroke: #000000;
-}
-
-.circle-fg {
-  stroke: #f049ff;
 }
 
 .circle-text {
