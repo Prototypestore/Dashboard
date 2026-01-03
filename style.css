@@ -34,8 +34,8 @@ body {
 /* -------- TOP GRID -------- */
 .top-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 140px;
+  grid-template-columns: 1fr 220px 1fr 1fr; /* 1st column: left cards, 2nd: donut, 3rd+4th: right cards */
+  grid-template-rows: repeat(2, 140px);
   gap: 20px;
   margin-bottom: 50px;
 }
@@ -94,14 +94,15 @@ body {
 
 /* -------- LARGE DONUT (NET PROFIT MARGIN) -------- */
 .donut.large {
-  grid-row: span 2;
-  width: 180px;
-  height: 180px;
+  grid-column: 2 / 3; /* place in middle-left column */
+  grid-row: 1 / 3;    /* span both rows */
+  width: 240px;
+  height: 240px;
 }
 
 .donut-circle {
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   background: conic-gradient(var(--accent) var(--percent), #eee 0);
   display: flex;
@@ -111,13 +112,13 @@ body {
 }
 
 .donut.large .donut-circle {
-  width: 180px;
-  height: 180px;
+  width: 240px;
+  height: 240px;
 }
 
 .donut-inner strong {
   display: block;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--text);
 }
@@ -126,6 +127,17 @@ body {
   font-size: 0.85rem;
   color: var(--muted);
   margin-top: 4px;
+}
+
+/* -------- POSITION QUICK AND CURRENT RATIO -------- */
+#quick-ratio {
+  grid-column: 4 / 5; /* right column */
+  grid-row: 1 / 2;    /* top row */
+}
+
+#current-ratio {
+  grid-column: 4 / 5; /* right column */
+  grid-row: 2 / 3;    /* bottom row */
 }
 
 /* -------- BAR CHART -------- */
@@ -169,11 +181,11 @@ body {
     grid-template-columns: 1fr;
   }
   .donut.large {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
   }
   .donut-circle {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
   }
 }
