@@ -4,22 +4,16 @@ import { applyTheme } from "./theme.js";
 
 export function renderDashboard(config) {
   const container = document.getElementById("dashboard-container");
-
   applyTheme(config);
 
-  container.style.backgroundColor = config.background_color;
-  container.style.color = config.text_color;
-  container.style.fontFamily = `${config.font_family}, system-ui`;
-  container.style.fontSize = `${config.font_size}px`;
-
   container.innerHTML = `
-    <div class="max-w-7xl mx-auto p-6">
-      <header class="mb-8">
-        <h1 class="text-3xl font-bold">${config.dashboard_title}</h1>
-        <p class="text-gray-500">${config.welcome_message}, let's review your business metrics</p>
+    <div class="dashboard-wrapper">
+      <header>
+        <h1>${config.dashboard_title}</h1>
+        <p>${config.welcome_message}, let's review your business metrics</p>
       </header>
 
-      <section class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <section class="metrics">
         ${metricCard({
           label: config.revenue_label,
           value: `$${sampleData.revenue.toLocaleString()}`,
@@ -40,6 +34,12 @@ export function renderDashboard(config) {
           value: `${sampleData.conversion}%`,
           change: sampleData.conversionChange
         })}
+      </section>
+
+      <section class="actions">
+        <button class="dashboard-btn primary">Generate Report</button>
+        <button class="dashboard-btn outline">Export Data</button>
+        <button class="dashboard-btn outline">Settings</button>
       </section>
     </div>
   `;
