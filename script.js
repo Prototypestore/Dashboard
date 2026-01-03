@@ -64,7 +64,10 @@ const options = {
     }
   },
   plugins: {
-    legend: { display: true } // <-- key/legend is now shown
+    legend: { 
+      display: true,     // turns the legend on
+      position: 'bottom', // moves it to the bottom
+    }
   },
   responsive: true,
   maintainAspectRatio: false,
