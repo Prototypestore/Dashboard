@@ -58,13 +58,13 @@ GRID LAYOUT
 
 /* BOTTOM ROW */
 .income-expenses-chart {
-  grid-column: 1 / 5;
-  grid-row: 3;
+  grid-column: 5 / 7; /* now under right 2x2 cards */
+  grid-row: 3;        /* stays in the same row */
 }
 
 .budget-donuts {
-  grid-column: 5 / 8;
-  grid-row: 3;
+  grid-column: 5 / 7; /* same columns as chart */
+  grid-row: 4;        /* below the chart */
   display: flex;
   gap: 20px;
   justify-content: space-between;
