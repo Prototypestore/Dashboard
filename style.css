@@ -94,21 +94,10 @@ body {
 
 /* -------- LARGE DONUT (NET PROFIT MARGIN) -------- */
 .donut.large {
-  grid-column: 2 / 3; /* place in middle-left column */
+  grid-column: 2 / 3; /* middle column */
   grid-row: 1 / 3;    /* span both rows */
   width: 240px;
   height: 240px;
-}
-
-.donut-circle {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: conic-gradient(var(--accent) var(--percent), #eee 0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
 }
 
 .donut.large .donut-circle {
@@ -117,26 +106,17 @@ body {
 }
 
 .donut-inner strong {
-  display: block;
   font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.donut-inner span {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-top: 4px;
 }
 
 /* -------- POSITION QUICK AND CURRENT RATIO -------- */
 #quick-ratio {
-  grid-column: 4 / 5; /* right column */
+  grid-column: 3 / 4; /* right side of donut */
   grid-row: 1 / 2;    /* top row */
 }
 
 #current-ratio {
-  grid-column: 4 / 5; /* right column */
+  grid-column: 3 / 4; /* right side of donut */
   grid-row: 2 / 3;    /* bottom row */
 }
 
