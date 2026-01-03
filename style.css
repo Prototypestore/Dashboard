@@ -1,0 +1,45 @@
+/* Base */
+body {
+  box-sizing: border-box;
+}
+
+/* Cards */
+.metric-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Charts */
+.chart-bar {
+  transition: height 0.3s ease;
+}
+
+/* Activity */
+.activity-item {
+  transition: background-color 0.2s ease;
+}
+
+.activity-item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Buttons */
+.dashboard-btn {
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: opacity 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.dashboard-btn.primary:hover {
+  opacity: 0.9;
+}
+
+.dashboard-btn.outline:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
