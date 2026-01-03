@@ -157,6 +157,20 @@ DONUTS
   width: 130px;
   height: 130px;
   position: relative;
+  margin-top: 8px; /* spacing below "Net Profit" */
+}
+
+.circle-bg {
+  stroke: #000000;
+  fill: none;
+  stroke-width: 12;
+}
+
+.circle-fg {
+  stroke: #f049ff;
+  fill: none;
+  stroke-width: 12;
+  stroke-linecap: round;
 }
 
 .circle-text {
@@ -167,6 +181,17 @@ DONUTS
   align-items: center;
   justify-content: center;
   color: #000000;
+}
+
+.circle-text .percent {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.circle-text .target {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.7;
 }
 
 /* -------------------------
