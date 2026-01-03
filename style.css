@@ -7,13 +7,13 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: #f1f3f6;
+  background: #ffffff;
   margin: 20px;
-  color: #000000; /* updated to custom dark */
+  color: #000000;
 }
 
 .dashboard {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -22,7 +22,7 @@ body {
   font-size: 26px;
   text-align: center;
   margin-bottom: 30px;
-  color: #000000; /* updated to custom dark */
+  color: #000000;
 }
 
 /* -------------------------
@@ -30,90 +30,46 @@ body {
 --------------------------*/
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, auto);
+  grid-template-columns: 1fr 250px 1fr; /* Left cards | center circle | right cards */
+  grid-template-rows: repeat(4, auto);  /* 4 rows for top cards / circle alignment */
   gap: 20px;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
-/* TOP ROW CARDS */
-.total-income {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-}
+/* LEFT CARDS */
+.left-card-1 { grid-column: 1 / 2; grid-row: 1 / 2; }
+.left-card-2 { grid-column: 1 / 2; grid-row: 2 / 3; }
+.left-card-3 { grid-column: 1 / 2; grid-row: 3 / 4; }
+.left-card-4 { grid-column: 1 / 2; grid-row: 4 / 5; }
 
-.total-expenses {
+/* RIGHT CARDS */
+.right-card-1 { grid-column: 3 / 4; grid-row: 1 / 2; }
+.right-card-2 { grid-column: 3 / 4; grid-row: 2 / 3; }
+.right-card-3 { grid-column: 3 / 4; grid-row: 3 / 4; }
+.right-card-4 { grid-column: 3 / 4; grid-row: 4 / 5; }
+
+/* CENTER BIG CIRCLE */
+.center-circle {
   grid-column: 2 / 3;
-  grid-row: 1 / 2;
-}
-
-.accounts-receivable {
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
-}
-
-.accounts-payable {
-  grid-column: 4 / 5;
-  grid-row: 1 / 2;
-}
-
-/* SECOND ROW CARDS */
-.net-profit {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-}
-
-.cash-end-month {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
-
-/* BIG CIRCLE (Net Profit Margin) SPANNING 2 ROWS */
-.net-profit-margin {
-  grid-column: 3 / 4;
-  grid-row: 2 / 4;
+  grid-row: 1 / 5; /* spans all 4 rows */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* RATIO CARDS */
-.quick-ratio {
-  grid-column: 4 / 5;
-  grid-row: 2 / 3;
-}
-
-.current-ratio {
-  grid-column: 4 / 5;
-  grid-row: 3 / 4;
-}
-
-/* INCOME & EXPENSES CHART FULL WIDTH */
-.income-expenses-chart {
-  grid-column: 1 / 5;
-  grid-row: 4 / 5;
-}
-
 /* BOTTOM BUDGET DONUTS */
 .budget-donuts {
-  grid-column: 1 / 5;
-  grid-row: 5 / 6;
+  grid-column: 1 / 4; /* full width */
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   gap: 30px;
-}
-
-/* FIXED WIDTH FOR BUDGET CARDS */
-.budget-card {
-  width: 140px;
 }
 
 /* -------------------------
    CARD STYLES
 --------------------------*/
 .card {
-  background: #ffffff; /* custom background */
+  background: #ffffff;
   border-radius: 16px;
   padding: 20px 24px;
   box-shadow: 0 6px 15px rgb(0 0 0 / 0.06);
@@ -124,128 +80,54 @@ body {
 
 .card .icon {
   font-size: 38px;
-  color: #000000; /* custom dark */
+  color: #000000;
 }
 
 .card h3 {
   margin: 0;
   font-weight: 700;
   font-size: 18px;
+  color: #000000;
 }
 
 .amount {
   font-weight: 700;
   font-size: 26px;
-  color: #000000; /* custom dark */
+  color: #000000;
 }
 
 .percent {
   font-weight: 600;
   font-size: 14px;
-  color: #f049ff; /* custom accent color */
+  color: #f049ff;
 }
 
 .negative-percent {
-  color: #000000; /* optionally use black for negative numbers */
+  color: #000000;
 }
 
 .sub-text {
   font-weight: 600;
   font-size: 12px;
-  color: #000000; /* custom dark */
+  color: #000000;
   opacity: 0.7;
 }
 
 /* Icons */
-.icon-dollar::before {
-  content: "$";
-  font-size: 40px;
-  font-weight: 900;
-  color: #000000;
-  display: block;
-  margin-bottom: 8px;
-}
+.icon-dollar::before { content: "$"; font-size: 40px; font-weight: 900; color: #000000; display: block; margin-bottom: 8px; }
+.icon-wallet::before { content: "\1F4B0"; font-size: 38px; color: #000000; margin-bottom: 8px; }
+.icon-chart::before { content: "\1F4C8"; font-size: 38px; color: #000000; margin-bottom: 8px; }
+.icon-cash::before { content: "\1F4B5"; font-size: 38px; color: #000000; margin-bottom: 8px; }
 
-.icon-wallet::before {
-  content: "\1F4B0";
-  font-size: 38px;
-  color: #000000;
-  margin-bottom: 8px;
-}
-
-.icon-chart::before {
-  content: "\1F4C8";
-  font-size: 38px;
-  color: #000000;
-  margin-bottom: 8px;
-}
-
-.icon-cash::before {
-  content: "\1F4B5";
-  font-size: 38px;
-  color: #000000;
-  margin-bottom: 8px;
-}
-
-/* Quick Ratio pie */
-.pie-chart {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: conic-gradient(#f049ff 70%, #000000 0);
-  margin-bottom: 6px;
-}
-
-/* Circle donut for % budget */
-.donut {
-  --size: 110px;
-  position: relative;
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  background: conic-gradient(#f049ff 0% 94%, #000000 94% 100%);
-  margin: 0 auto;
-}
-
-.donut::before {
-  content: "";
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  width: calc(var(--size) - 28px);
-  height: calc(var(--size) - 28px);
-  background: #ffffff; /* white inside */
-  border-radius: 50%;
-}
-
-.donut-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: 700;
-  font-size: 28px;
-  color: #000000; /* custom dark */
-}
-
-/* Circle container (Net Profit Margin) */
+/* Big center circle */
 .circle-container {
   position: relative;
-  width: 130px;
-  height: 130px;
-  margin: 0 auto;
+  width: 180px;
+  height: 180px;
 }
 
-.circle-bg {
-  stroke: #000000;
-}
-
-.circle-fg {
-  stroke: #f049ff;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 1s ease-out;
-}
+.circle-bg { stroke: #000000; }
+.circle-fg { stroke: #f049ff; stroke-linecap: round; transition: stroke-dashoffset 1s ease-out; }
 
 .circle-text {
   position: absolute;
@@ -257,97 +139,31 @@ body {
   color: #000000;
 }
 
-.circle-text .percent {
-  font-size: 30px;
-}
+.circle-text .percent { font-size: 36px; }
+.circle-text .target { font-weight: 400; font-size: 14px; margin-top: 4px; }
 
-.circle-text .target {
-  font-weight: 400;
-  font-size: 14px;
-  margin-top: 4px;
-}
+/* Pie / Donut charts */
+.pie-chart { position: relative; width: 48px; height: 48px; border-radius: 50%; background: conic-gradient(#f049ff 70%, #000000 0); margin-bottom: 6px; }
+.donut { --size: 110px; position: relative; width: var(--size); height: var(--size); border-radius: 50%; background: conic-gradient(#f049ff 0% 94%, #000000 94% 100%); margin: 0 auto; }
+.donut::before { content: ""; position: absolute; top: 14px; left: 14px; width: calc(var(--size) - 28px); height: calc(var(--size) - 28px); background: #ffffff; border-radius: 50%; }
+.donut-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: 700; font-size: 28px; color: #000000; }
 
-/* Quick Ratio / Current Ratio */
-.ratio-value {
-  font-weight: 700;
-  font-size: 22px;
-  color: #f049ff;
-  margin-bottom: 4px;
-}
-
-.ratio-subtext {
-  font-weight: 600;
-  font-size: 13px;
-  color: #000000;
-}
-
-/* Income & Expenses Chart */
-.income-expenses-chart {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 16px 20px;
-  box-shadow: 0 6px 15px rgb(0 0 0 / 0.06);
-}
-
-/* Budget Donuts */
-.budget-donuts {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-}
-
-.budget-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 14px 20px;
-  width: 140px;
-  box-shadow: 0 6px 15px rgb(0 0 0 / 0.06);
-  text-align: center;
-  color: #000000;
-}
-
-.budget-card .budget-label {
-  font-weight: 700;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-.budget-card .budget-value {
-  font-weight: 700;
-  font-size: 20px;
-  margin-top: 6px;
-  color: #f049ff;
-}
-
-.budget-card .budget-balance {
-  font-weight: 600;
-  font-size: 12px;
-  margin-top: 2px;
-}
-
-.budget-balance.negative {
-  color: #000000;
-}
+/* Budget cards */
+.budget-card { background: #ffffff; border-radius: 16px; padding: 14px 20px; width: 140px; box-shadow: 0 6px 15px rgb(0 0 0 / 0.06); text-align: center; color: #000000; }
+.budget-card .budget-label { font-weight: 700; font-size: 14px; margin-top: 10px; }
+.budget-card .budget-value { font-weight: 700; font-size: 20px; margin-top: 6px; color: #f049ff; }
+.budget-card .budget-balance { font-weight: 600; font-size: 12px; margin-top: 2px; }
+.budget-balance.negative { color: #000000; }
 
 /* Charts */
-.line-chart {
-  stroke: #f049ff;
-  stroke-width: 2;
-  fill: none;
-}
+.line-chart { stroke: #f049ff; stroke-width: 2; fill: none; }
+.bar-income { fill: #000000; }
+.bar-expenses { fill: #f049ff; }
 
-.bar-income {
-  fill: #000000;
-}
-
-.bar-expenses {
-  fill: #f049ff;
-}
-
-/* Responsive tweaks */
-@media (max-width: 600px) {
-  .budget-donuts {
-    flex-direction: column;
-    gap: 20px;
-  }
+/* Responsive */
+@media (max-width: 900px) {
+  .grid-container { grid-template-columns: 1fr; grid-template-rows: repeat(13, auto); }
+  .center-circle { grid-column: 1 / 2; grid-row: 5 / 6; margin: 20px auto; }
+  .left-card-1, .left-card-2, .left-card-3, .left-card-4, .right-card-1, .right-card-2, .right-card-3, .right-card-4 { grid-column: 1 / 2; }
+  .budget-donuts { flex-direction: column; gap: 20px; }
 }
