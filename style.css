@@ -44,8 +44,14 @@ GRID LAYOUT
 .grid-container > .card:nth-child(5) { grid-column: 1; grid-row: 2; }
 .grid-container > .card:nth-child(6) { grid-column: 2; grid-row: 2; }
 /* ACCOUNTS RECEIVABLE & PAYABLE SIDE BY SIDE */
-.grid-container > .card:nth-child(3) { grid-column: 1; grid-row: 2; }
-.grid-container > .card:nth-child(4) { grid-column: 2; grid-row: 2; }
+.grid-container > .card:nth-child(3) {
+  grid-column: 1;
+  grid-row: 2; /* moved up to row 2 */
+}
+.grid-container > .card:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2; /* moved up to row 2 */
+}
 
 /* CENTER DONUT */
 .grid-container > .card:nth-child(7) {
