@@ -91,11 +91,11 @@ CARD STYLES (EQUAL HEIGHT)
   background: #ffffff;
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08); /* unchanged */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 190px; /* 🔑 SAME HEIGHT */
+  min-height: 190px; /* ensures card heights stay the same */
   text-align: left;
   color: #000000;
 }
