@@ -1,4 +1,4 @@
-/* ---------- METRICS FUNCTION ---------- */
+// ---------------- METRIC FUNCTION ----------------
 function metric(el, title, value, change) {
   el.innerHTML = `
     <h3>${title}</h3>
@@ -8,17 +8,27 @@ function metric(el, title, value, change) {
   `;
 }
 
-/* ---------- APPLY METRICS ---------- */
-metric(document.getElementById("income"), "Total Income", "$4 719,00", "16.1%");
-metric(document.getElementById("expenses"), "Total Expenses", "$3 270,00", "16.1%");
-metric(document.getElementById("receivable"), "Accounts Receivable", "609,00", "-5.1%");
-metric(document.getElementById("payable"), "Accounts Payable", "538,00", "-15.7%");
-metric(document.getElementById("net-profit"), "Net Profit", "629,00", "-8.8%");
-metric(document.getElementById("cash"), "Cash at end of month", "7 684,00", "4.9%");
-metric(document.getElementById("quick-ratio"), "Quick Ratio", "1.02", "1 or higher");
-metric(document.getElementById("current-ratio"), "Current Ratio", "3.02", "3 or higher");
+// Get all metric elements
+const income = document.getElementById("income");
+const expenses = document.getElementById("expenses");
+const receivable = document.getElementById("receivable");
+const payable = document.getElementById("payable");
+const net_profit = document.getElementById("net-profit");
+const cash = document.getElementById("cash");
+const quick_ratio = document.getElementById("quick-ratio");
+const current_ratio = document.getElementById("current-ratio");
 
-/* ---------- DONUT FUNCTION ---------- */
+// Apply metric data
+metric(income, "Total Income", "$4 719,00", "16.1%");
+metric(expenses, "Total Expenses", "$3 270,00", "16.1%");
+metric(receivable, "Accounts Receivable", "609,00", "-5.1%");
+metric(payable, "Accounts Payable", "538,00", "-15.7%");
+metric(net_profit, "Net Profit", "629,00", "-8.8%");
+metric(cash, "Cash at end of month", "7 684,00", "4.9%");
+metric(quick_ratio, "Quick Ratio", "1.02", "1 or higher");
+metric(current_ratio, "Current Ratio", "3.02", "3 or higher");
+
+// ---------------- DONUT FUNCTION ----------------
 function donut(el, percent, label) {
   el.innerHTML = `
     <div class="donut-circle" style="--percent:${percent}%">
@@ -30,20 +40,21 @@ function donut(el, percent, label) {
   `;
 }
 
-/* ---------- APPLY DONUTS ---------- */
-donut(document.getElementById("profit-margin"), 13.3, "Net Profit Margin");
-donut(document.getElementById("income-budget"), 94, "Income Budget");
-donut(document.getElementById("expense-budget"), 93, "Expenses Budget");
+const profit_margin = document.getElementById("profit-margin");
+const income_budget = document.getElementById("income-budget");
+const expense_budget = document.getElementById("expense-budget");
 
-/* ---------- BAR CHART FUNCTION ---------- */
-function barChart(el, data) {
-  el.innerHTML = `
-    <h3>Income and Expenses</h3>
-    <div class="chart-bars">
-      ${data.map(v => `<div class="bar" style="height:${v * 3}px"></div>`).join("")}
-    </div>
-  `;
-}
+donut(profit_margin, 13.3, "Net Profit Margin");
+donut(income_budget, 94, "Income Budget");
+donut(expense_budget, 93, "Expenses Budget");
 
-/* ---------- APPLY BAR CHART ---------- */
-barChart(document.getElementById("income-expenses"), [50, 40, 55, 60, 45, 70, 65, 60, 50, 55, 48, 60]);
+// ---------------- BAR CHART ----------------
+const chart = document.getElementById("income-expenses");
+chart.innerHTML = `
+  <h3>Income and Expenses</h3>
+  <div class="chart-bars">
+    ${[50,40,55,60,45,70,65,60,50,55,48,60]
+      .map(v => `<div class="bar" style="height:${v * 3}px"></div>`)
+      .join("")}
+  </div>
+`;
