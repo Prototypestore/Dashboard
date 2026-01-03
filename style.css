@@ -56,19 +56,21 @@ GRID LAYOUT
 .grid-container > .card:nth-of-type(8) { grid-column: 5; grid-row: 2; }
 .grid-container > .card:nth-of-type(9) { grid-column: 6; grid-row: 2; }
 
-/* BOTTOM ROW */
+/* Bottom row stays the same for income-expenses chart */
 .income-expenses-chart {
-  grid-column: 5 / 7; /* now under right 2x2 cards */
-  grid-row: 3;        /* stays in the same row */
+  grid-column: 1 / 5; /* left side */
+  grid-row: 3;
 }
 
+/* Budget donuts now sit under right 2x2 cards */
 .budget-donuts {
-  grid-column: 5 / 8; 
-  grid-row: 3; 
-  display: flex; 
-  gap: 20px; 
-  justify-content: space-between; 
+  grid-column: 5 / 7; /* right side */
+  grid-row: 3;         /* bottom row */
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
 }
+
 
 /* -------------------------
 CARD STYLES (EQUAL HEIGHT)
