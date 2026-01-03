@@ -1,33 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vx100 Studio Financial Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vx100 Sudio Financial Dashboard</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="dashboard">
-    <h1 class="title">FINANCIAL DASHBOARD</h1>
-    <!-- TOP GRID -->
-    <section class="top-grid">
-      <div class="card metric" id="income"></div>
-      <div class="card metric" id="expenses"></div>
-      <div class="card donut large" id="profit-margin"></div>
-      <div class="card metric" id="receivable"></div>
-      <div class="card metric" id="payable"></div>
-      <div class="card metric" id="net-profit"></div>
-      <div class="card metric" id="cash"></div>
-      <div class="card metric" id="quick-ratio"></div>
-      <div class="card metric" id="current-ratio"></div>
-    </section>
-    <!-- BOTTOM GRID -->
-    <section class="bottom-grid">
-      <div class="card chart" id="income-expenses"></div>
-      <div class="card donut" id="income-budget"></div>
-      <div class="card donut" id="expense-budget"></div>
-    </section>
-  </main>
-  <script src="dashboard.js"></script>
+<div class="dashboard">
+  <div class="title">FINANCIAL DASHBOARD</div>
+  <div class="grid-container">
+    <!-- Total Income -->
+    <div class="card">
+      <div class="icon icon-dollar"></div>
+      <h3>Total Income</h3>
+      <div class="amount">4 719,00</div>
+      <div class="percent">16.1%</div>
+      <div class="sub-text">vs previous month</div>
+    </div>
+    <!-- Total Expenses -->
+    <div class="card">
+      <div class="icon icon-wallet"></div>
+      <h3>Total Expenses</h3>
+      <div class="amount">3 270,00</div>
+      <div class="percent">16.1%</div>
+      <div class="sub-text">vs previous month</div>
+    </div>
+    <!-- Accounts Receivable -->
+    <div class="card" style="text-align:center;">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="#043862" style="margin-bottom: 8px;">
+        <circle cx="6" cy="15" r="3" stroke="#043862" stroke-width="1" fill="#2c84f9"/>
+        <circle cx="11" cy="12" r="3" stroke="#043862" stroke-width="1" fill="#2c84f9"/>
+        <circle cx="16" cy="10" r="3" stroke="#043862" stroke-width="1" fill="#2c84f9"/>
+      </svg>
+      <h3>Accounts Receivable</h3>
+      <div class="amount">609,00</div>
+      <div class="percent negative-percent">-5,1%</div>
+      <div class="sub-text">vs previous month</div>
+    </div>
+    <!-- Accounts Payable -->
+    <div class="card" style="text-align:center;">
+      <svg width="36" height="36" fill="none" stroke="#043862" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 8px;">
+        <rect x="2" y="7" width="20" height="10" rx="2" ry="2" />
+        <line x1="2" y1="11" x2="22" y2="11" />
+        <line x1="6" y1="7" x2="6" y2="17" />
+      </svg>
+      <h3>Accounts Payable</h3>
+      <div class="amount">538,00</div>
+      <div class="percent negative-percent">-15,7%</div>
+      <div class="sub-text">vs previous month</div>
+    </div>
+    <!-- Net Profit -->
+    <div class="card">
+      <div class="icon icon-chart"></div>
+      <h3>Net Profit</h3>
+      <div class="amount">629,00</div>
+      <div class="percent negative-percent">-8,8%</div>
+      <div class="sub-text">vs previous month</div>
+    </div>
+    <!-- Cash at end of month -->
+    <div class="card">
+      <div class="icon icon-cash"></div>
+      <h3>Cash at end of month</h3>
+      <div class="amount">7 684,00</div>
+      <div class="percent" style="color:#2c84f9;">4,9%</div>
+      <div class="sub-text">vs previous month</div>
+    </div>
+    <!-- Net Profit Margin Circle -->
+    <div class="card" style="padding: 28px 24px; align-items:center; text-align:center;">
+      <div class="circle-container">
+        <svg width="130" height="130" viewBox="0 0 120 120" style="transform: rotate(-90deg);">
+          <circle
+            cx="60" cy="60" r="54"
+            stroke="#53bbff"
+            stroke-width="12"
+            fill="none"
+          />
+          <circle
+            cx="60" cy="60" r="54"
+            stroke="#043862"
+            stroke-width="12"
+            fill="none"
+            stroke-dasharray="339.292"
+            stroke-dashoffset="294.82"
+            class="circle-fg"
+          />
+        </svg>
+        <div class="circle-text">
+          <div class="percent">13,3%</div>
+          <div class="target">Target 12,0%</div>
+        </div>
+      </div>
+    </div>
+    <!-- Quick Ratio -->
+    <div class="card" style="text-align:center;">
+      <div class="pie-chart" style="margin: 0 auto;"></div>
+      <div class="ratio-value">1,02</div>
+      <div class="sub-text">1 or higher</div>
+      <div class="ratio-subtext" style="margin-top: 8px;">Quick Ratio Target</div>
+    </div>
+    <!-- Current Ratio -->
+    <div class="card" style="text-align:center;">
+      <div style="font-size: 36px; margin-bottom: 8px; color:#043862;">⏱️</div>
+      <div class="ratio-value" style="color:#2c84f9;">3,02</div>
+      <div class="sub-text">3 or higher</div>
+      <div class="ratio-subtext" style="margin-top: 8px;">Current Ratio Target</div>
+    </div>
+    <!-- Income and Expenses Chart -->
+    <div class="income-expenses-chart">
+      <canvas id="incomeExpensesChart" height="180"></canvas>
+    </div>
+    <!-- Budget Donuts -->
+    <div class="budget-donuts">
+      <div class="budget-card">
+        <div class="donut" style="--size: 110px;">
+          <div class="donut-text">94%</div>
+        </div>
+        <div class="budget-label">% of income Budget</div>
+        <div class="budget-value">5 000,00</div>
+        <div class="budget-balance negative">Balance -281,00</div>
+      </div>
+      <div class="budget-card">
+        <div class="donut" style="--size: 110px; background: conic-gradient(#53bbff 0% 7%, #043862 7% 100%);">
+          <div class="donut-text">93%</div>
+        </div>
+        <div class="budget-label">% of Expenses Budget</div>
+        <div class="budget-value">3 500,00</div>
+        <div class="budget-balance negative">Balance -230,00</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
