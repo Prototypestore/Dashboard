@@ -1,6 +1,7 @@
-// Income and Expenses Bar + Net Profit Line Chart using Chart.js
+// Get canvas context
 const ctx = document.getElementById('incomeExpensesChart').getContext('2d');
 
+// Chart data
 const data = {
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   datasets: [
@@ -13,10 +14,14 @@ const data = {
     },
     {
       label: 'Total Expenses',
-      data: [-3000, -2000, -4000, -5000, -3500, -3000, -3700, -3900, -3000, -2800, -3000, -2900],
+      data: [3000, 2000, 4000, 5000, 3500, 3000, 3700, 3900, 3000, 2800, 3000, 2900],
       backgroundColor: '#2c84f9',
       borderRadius: 4,
       barPercentage: 0.5,
+      // Make these bars negative so they appear below zero
+      datalabels: {
+        align: 'end'
+      }
     },
     {
       label: 'Net Profit',
@@ -27,49 +32,43 @@ const data = {
       fill: false,
       tension: 0.3,
       yAxisID: 'y1',
-      pointRadius: 0,
+      pointRadius: 3,
     },
   ],
 };
 
+// Chart options
 const options = {
+  responsive: true,
+  maintainAspectRatio: false,
   scales: {
     y: {
-      position: 'left',
-      beginAtZero: false,
+      beginAtZero: true,
+      grid: { drawTicks: false },
       ticks: {
         callback: function(value) {
           return value.toLocaleString();
         }
-      },
-      grid: {
-        drawTicks: false,
       }
     },
     y1: {
       position: 'right',
-      beginAtZero: false,
-      grid: {
-        drawOnChartArea: false,
-        drawTicks: false,
-      },
-      ticks: {
-        display: false
-      }
+      grid: { drawOnChartArea: false, drawTicks: false },
+      ticks: { display: false }
     },
     x: {
-      grid: {
-        display: false
-      }
+      grid: { display: false }
     }
   },
   plugins: {
-    legend: { display: false }
+    legend: {
+      display: true,
+      position: 'bottom',
+    },
   },
-  responsive: true,
-  maintainAspectRatio: false,
 };
 
+// Create chart
 new Chart(ctx, {
   type: 'bar',
   data: data,
